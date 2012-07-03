@@ -1,4 +1,5 @@
 begin
+  require 'bson_ext'
   require 'mongoid'
   require 'mongo_session_store/mongo_store_base'
 
@@ -9,7 +10,7 @@ begin
         class Session
           include Mongoid::Document
           include Mongoid::Timestamps
-          self.collection_name = MongoSessionStore.collection_name
+          store_in collection: MongoSessionStore.collection_name
 
           attr_accessible :_id, :data
 
