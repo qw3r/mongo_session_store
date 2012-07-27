@@ -1,4 +1,5 @@
 begin
+  require 'bson'
   require 'mongoid'
   require 'mongo_session_store/mongo_store_base'
 
