@@ -20,12 +20,12 @@ begin
             field :_id, :type => String
           end
 
-          field :data, :type => Moped::BSON::Binary, :default => Moped::BSON::Binary.new(Marshal.dump({}))
+          field :data, :type => Moped::BSON::Binary, :default => Moped::BSON::Binary.new(:user, Marshal.dump({}))
         end
 
         private
         def pack(data)
-          Moped::BSON::Binary.new(Marshal.dump(data))
+          Moped::BSON::Binary.new(:user, Marshal.dump(data))
         end
       end
     end
